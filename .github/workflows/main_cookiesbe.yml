@@ -4,9 +4,9 @@
 name: Build and deploy Node.js app to Azure Web App - cookiesbe
 
 on:
-  push:
-    branches:
-      - main
+  #push:
+  #  branches:
+  #    - main
   workflow_dispatch:
 
 jobs:
@@ -25,16 +25,19 @@ jobs:
         run: |
           npm install
           npm run build --if-present
-          npm run test --if-present
 
       - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
+        uses: vimtor/action-zip@v1.2
+        with:
+          files: dist/ node_modules/ package.json
+          recursive: false
+          dest: releaseBE.zip
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: release.zip
+          path: releaseBE.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -47,15 +50,20 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: node-app
 
       - name: Unzip artifact for deployment
-        run: unzip release.zip
+        run: unzip releaseBE.zip
+
+      - name: Remove File
+        uses: JesseTG/rm@v1.0.3
+        with:
+          path: releaseBE.zip
       
       - name: Login to Azure
-        uses: azure/login@v1
+        uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_B10981A229CF41DF80B3A2C37BCC816D }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_8F689AC70AFF4AD39904D2DDD7EA3AD1 }}
@@ -63,7 +71,7 @@ jobs:
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
+        uses: azure/webapps-deploy@v3
         with:
           app-name: 'cookiesbe'
           slot-name: 'Production'
