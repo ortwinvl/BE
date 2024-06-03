@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "npm run prod",
+    "start": "node dist/server.js",
     "prod": "cross-env NODE_ENV=production node dist/server.js",
     "dev": "cross-env NODE_ENV=development nodemon",
     "migdev": "npm run db:migrate && npm run dev",

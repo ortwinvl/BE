@@ -35,7 +35,7 @@
     //   "@utils/*": ["utils/*"]
     // }
   },
-  "include": ["src/**/*.ts", "src/**/*.json", ".env", "src/services/converttostream.service.js", "src/repositories/index.ts"],
+  "include": ["src/**/*.ts", "src/**/*.json", ".env", "src/repositories/index.ts"],
   "exclude": ["node_modules", "src/http", "src/logs", "src/tests"]
 }
 
