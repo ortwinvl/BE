@@ -7,7 +7,7 @@ import pkg from 'body-parser';
 const { json, urlencoded } = pkg;
 import path from 'path';
 import cors from 'cors';
-import { NODE_ENV, PORT, ORIGIN, CREDENTIALS, SECRET_KEY } from './config/index';
+import { NODE_ENV, PORT, ORIGIN, CREDENTIALS, SECRET_KEY } from './config';
 import { IRoute } from "./interfaces";
 import { Sequelize } from 'sequelize';
 
@@ -100,6 +100,8 @@ class App {
 
   public async listen() {
     console.log(this.port);
+    console.log(SECRET_KEY)
+    console.log(PORT)
     
     this.app.listen(this.port, () => {
       console.info(`=================================`);
