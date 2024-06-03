@@ -1,0 +1,81 @@
+[{
+  "_id": {
+    "$oid": "65c31778631a23d03a8aba80"
+  },
+  "enum": "role",
+  "key": "00",
+  "value": "backoffice",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c317a6631a23d03a8aba82"
+  },
+  "enum": "role",
+  "key": "10",
+  "value": "admin",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c317b0631a23d03a8aba84"
+  },
+  "enum": "role",
+  "key": "20",
+  "value": "user",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c31fab5d33dc96093e956d"
+  },
+  "enum": "color",
+  "key": "00",
+  "value": "chestnut",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c334b86479d515507f2282"
+  },
+  "enum": "color",
+  "key": "10",
+  "value": "black",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c34ece905b8653ddbcaca9"
+  },
+  "enum": "color",
+  "key": "20",
+  "value": "bay",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c39c5be870d577169ac842"
+  },
+  "enum": "lang",
+  "key": "00",
+  "value": "nl",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c39c6ce870d577169ac846"
+  },
+  "enum": "lang",
+  "key": "10",
+  "value": "fr",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c39c75e870d577169ac84a"
+  },
+  "enum": "lang",
+  "key": "20",
+  "value": "en",
+  "__v": 0
+}]

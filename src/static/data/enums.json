@@ -1,0 +1,62 @@
+[{
+  "id": "100",
+  "enum": "role",
+  "key": "00",
+  "value": "backoffice"
+  
+},
+{
+  "id": "110",
+  "enum": "role",
+  "key": "10",
+  "value": "admin"
+},
+{
+  "id": "120",
+  "enum": "role",
+  "key": "20",
+  "value": "user"
+  
+},
+{
+  "id": "200",
+  "enum": "color",
+  "key": "00",
+  "value": "chestnut"
+  
+},
+{
+  "id": "201",
+  "enum": "color",
+  "key": "10",
+  "value": "black"
+  
+},
+{
+  "id": "202",
+  "enum": "color",
+  "key": "20",
+  "value": "bay"
+  
+},
+{
+  "id": "20",
+  "enum": "lang",
+  "key": "00",
+  "value": "nl"
+  
+},
+{
+  "id": "21",
+  "enum": "lang",
+  "key": "10",
+  "value": "fr"
+  
+},
+{
+  "id": "22",
+  "enum": "lang",
+  "key": "20",
+  "value": "en"
+  
+}]
