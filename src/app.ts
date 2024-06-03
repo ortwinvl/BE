@@ -99,6 +99,8 @@ class App {
   }
 
   public async listen() {
+    console.log(this.port);
+    
     this.app.listen(this.port, () => {
       console.info(`=================================`);
       console.info(`======= ENV: ${this.env} =======`);
