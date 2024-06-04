@@ -53,6 +53,7 @@ class App {
     const sess: SessionOptions = {
       secret: SECRET_KEY,
       cookie: {secure: false, 
+              partitioned: true,
               sameSite: 'none',
               maxAge: 1000 * 60 * 60 * 24
             },
