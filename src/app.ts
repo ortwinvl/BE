@@ -63,13 +63,6 @@ class App {
       saveUninitialized: false,
       unset: 'destroy'
     }
-    
-    this.app.use(fileUpload());
-    this.app.use(json({ limit: '5mb' }));
-    this.app.use(urlencoded({ limit: '5mb', extended: true }));
-    //app.use('/api-docs', serve, setup(openapiSpecification));
-    this.app.use(cors({ credentials: CREDENTIALS, origin: ORIGIN, exposedHeaders: ['set-cookie'] }));
-    this.app.use('/static', express.static('public'))
 
     //If production set secure
     console.log(this.env);
@@ -78,7 +71,14 @@ class App {
       this.app.set('trust proxy', 1) // trust first proxy
       sess.cookie.secure = true // serve secure cookies
     }
-    this.app.use(session(sess))
+    this.app.use(session(sess));
+    
+    this.app.use(fileUpload());
+    this.app.use(json({ limit: '5mb' }));
+    this.app.use(urlencoded({ limit: '5mb', extended: true }));
+    //app.use('/api-docs', serve, setup(openapiSpecification));
+    this.app.use(cors({ credentials: CREDENTIALS, origin: ORIGIN }));
+    this.app.use('/static', express.static('public'))
     
     //mySessionStore.sync();
     this.app.use(function (req, res, next) {
@@ -86,6 +86,8 @@ class App {
       res.header('Access-Control-Allow-Origin', ORIGIN );
       res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
       res.header('Access-Control-Allow-Headers', "X-Requested-With, Origin, Content-Type, Accept");
+      console.log("req.session");
+      console.log(req.session);
       next();
     });
   }
