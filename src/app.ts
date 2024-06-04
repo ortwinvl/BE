@@ -72,7 +72,9 @@ class App {
     this.app.use('/static', express.static('public'))
 
     //If production set secure
-    if (this.app.get('env') === 'production') {
+    console.log(this.env);
+
+    if (this.env.toLowerCase() === 'production') {
       this.app.set('trust proxy', 1) // trust first proxy
       sess.cookie.secure = true // serve secure cookies
     }
@@ -99,9 +101,9 @@ class App {
   }
 
   public async listen() {
-    console.log(this.port);
-    console.log(SECRET_KEY)
-    console.log(PORT)
+    // console.log(this.port);
+    // console.log(SECRET_KEY)
+    // console.log(PORT)
     
     this.app.listen(this.port, () => {
       console.info(`=================================`);
